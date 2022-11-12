@@ -1,5 +1,18 @@
--- This file allow to write SQL commands that will be emitted in test and dev.
--- The commands are commented as their support depends of the database
--- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-1');
--- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-2');
--- insert into myentity (id, field) values(nextval('hibernate_sequence'), 'field-3');
+insert into Users (USERID, FIRSTNAME, LASTNAME, USERNAME) VALUES
+  (1, 'Max', 'Muster', 'maxi'),
+  (2, 'Susi', 'Sonne', 'sunny');
+
+insert into Article (ID, CONTENT, TITLE, AUTHOR_ID) values
+  (1, 'First Steps with JPA', 'TODO: Add details how to use JPA', 1),
+  (2, 'Create REST-API with Quarkus', 'TODO: Add REST-Tutorial', 2),
+  (3, 'Advanced JPA', 'TODO: Add details here... ', 1);
+
+
+insert into Comment (ID, TEXT, ARTICLE_ID, USER_USERID) values
+  (1, 'Forget to mention details about LOB columns', 1, 1),
+  (2, 'Hope that´s not too complicated...', 1, 2),
+  (3, 'Wow, that´s really easy...', 2, 1);
+
+-- to avoid duplicate numbers for primary keys
+drop sequence hibernate_sequence RESTRICT ;
+create sequence hibernate_sequence start with 100;

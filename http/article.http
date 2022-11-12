@@ -1,0 +1,24 @@
+GET http://localhost:8080/api/article/1
+
+###
+
+GET http://localhost:8080/api/article/list/1
+
+###
+
+GET http://localhost:8080/api/article/comment/100
+
+###
+
+POST http://localhost:8080/api/article/comment
+Content-Type: application/json
+
+{
+  "text": "First comment",
+  "user": {
+    "userid": 2
+  },
+  "article": {
+    "id": 3
+  }
+}
